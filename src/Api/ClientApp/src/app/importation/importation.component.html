@@ -1,0 +1,26 @@
+﻿<h1 id="tableLabel">Importações</h1>
+
+<p>Busca todas as importações</p>
+
+<p *ngIf="!importations"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="importations">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Menor data de entrega</th>
+      <th>Total de Items Importado</th>
+      <th>Valor Total da Importação</th>
+      <th>Importado em</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let importation of importations">
+      <td>{{ importation.id }}</td>
+      <td>{{ importation.lessDeliveredDate | date:"dd/MM/yyyy HH:mm"}}</td>
+      <td>{{ importation.totalItems }}</td>
+      <td>{{ importation.totalValue | number:"1.2"}}</td>
+      <td>{{ importation.createdOn | date:"dd/MM/yyyy HH:mm"}}</td>
+    </tr>
+  </tbody>
+</table>
